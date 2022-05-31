@@ -60,6 +60,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "proveedores",
   data: function data() {
@@ -81,9 +83,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return _this.axios.get('/api/proveedor').then(function (response) {
-                  _this.proveedores = response.data();
+                  _this.proveedores = response.data;
                 })["catch"](function (err) {
-                  _this.proveedores = [];
+                  _this.proveedor = [];
                 });
 
               case 2:
@@ -979,24 +981,20 @@ var render = function () {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "col-12 p-4" }, [
-      _c("div", { staticClass: "table-responsive table-bordered" }, [
-        _c("table", { staticClass: "table bg-primary text-white" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "table-responsive " }, [
+        _c("table", { staticClass: "table table-bordered " }, [
           _vm._m(0),
           _vm._v(" "),
           _c(
             "tbody",
             _vm._l(_vm.proveedores, function (proveedor) {
               return _c("tr", { key: proveedor.id }, [
-                _c("td", { domProps: { textContent: _vm._s(proveedor.id) } }),
+                _c("td", [_vm._v(_vm._s(proveedor.id))]),
                 _vm._v(" "),
-                _c("td", {
-                  domProps: { textContent: _vm._s(proveedor.nombre) },
-                }),
+                _c("td", [_vm._v(_vm._s(proveedor.nombre))]),
                 _vm._v(" "),
-                _c("td", {
-                  domProps: { textContent: _vm._s(proveedor.deuda) },
-                }),
+                _c("td", [_vm._v("$ " + _vm._s(proveedor.deuda))]),
                 _vm._v(" "),
                 _c(
                   "td",
@@ -1014,22 +1012,22 @@ var render = function () {
                       },
                       [_c("i", { staticClass: "fa-solid fa-pen-to-square" })]
                     ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.borrarProveedor(proveedor.id)
+                          },
+                        },
+                      },
+                      [_c("i", { staticClass: "fas fa-trash" })]
+                    ),
                   ],
                   1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.borrarProveedor(proveedor.id)
-                      },
-                    },
-                  },
-                  [_c("i", { staticClass: "fas fa-trash" })]
                 ),
               ])
             }),
@@ -1045,7 +1043,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
+    return _c("thead", { staticClass: "bg-primary text-white" }, [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),

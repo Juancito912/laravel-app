@@ -14,7 +14,6 @@ class ProveedorController extends Controller
     public function index()
     {
         $proveedores = Proveedor::all();
-        // return response()->json($proveedores);
         return $proveedores;
     }
 
@@ -36,10 +35,10 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        $proveedor=Proveedor::create($request->post());
-        return response()->json([
-            'proveedor'=>$proveedor
-        ]);
+        $proveedor=new Proveedor();
+        $proveedor->nombre=$request->nombre;
+        $proveedor->deuda=$request->deuda;
+        $proveedor->save();
     }
 
     /**
@@ -73,10 +72,10 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, Proveedor $proveedor)
     {
-        $proveedor->fill($request->post())->save();
-        return response()->json([
-            'proveedor'=>$proveedor
-        ]);
+        $proveedor = Proveedor::find($proveedor->id);
+        $proveedor->nombre = $request->nombre;
+        $proveedor->deuda = $request->deuda;
+        $proveedor->save();
     }
 
     /**

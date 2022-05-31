@@ -2244,16 +2244,8 @@ var Home = function Home() {
 }; //importamos componentes para proveedores
 
 
-var Editar = function Editar() {
-  return __webpack_require__.e(/*! import() */ "resources_js_componentes_proveedor_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./componentes/proveedor/Editar.vue */ "./resources/js/componentes/proveedor/Editar.vue"));
-};
-
-var Crear = function Crear() {
-  return __webpack_require__.e(/*! import() */ "resources_js_componentes_proveedor_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./componentes/proveedor/Crear.vue */ "./resources/js/componentes/proveedor/Crear.vue"));
-};
-
-var Mostrar = function Mostrar() {
-  return __webpack_require__.e(/*! import() */ "resources_js_componentes_proveedor_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./componentes/proveedor/Mostrar.vue */ "./resources/js/componentes/proveedor/Mostrar.vue"));
+var Proveedor = function Proveedor() {
+  return __webpack_require__.e(/*! import() */ "resources_js_componentes_proveedor_Proveedor_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./componentes/proveedor/Proveedor.vue */ "./resources/js/componentes/proveedor/Proveedor.vue"));
 };
 
 var Routes = [{
@@ -2263,15 +2255,7 @@ var Routes = [{
 }, {
   name: 'mostrarProveedor',
   path: '/proveedores',
-  component: Mostrar
-}, {
-  name: 'crearProveedor',
-  path: '/crear',
-  component: Crear
-}, {
-  name: 'editarProveedor',
-  path: '/editar/:id',
-  component: Editar
+  component: Proveedor
 }];
 
 /***/ }),
@@ -35315,7 +35299,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_componentes_Home_vue":1,"resources_js_componentes_proveedor_Editar_vue":1,"resources_js_componentes_proveedor_Crear_vue":1,"resources_js_componentes_proveedor_Mostrar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_componentes_Home_vue":1,"resources_js_componentes_proveedor_Proveedor_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -35522,6 +35506,11 @@ Vue.compile = compileToFunctions;
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

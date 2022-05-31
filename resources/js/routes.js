@@ -1,8 +1,6 @@
 const Home = ()=> import('./componentes/Home.vue')
 //importamos componentes para proveedores
-const Editar = ()=> import('./componentes/proveedor/Editar.vue')
-const Crear = ()=> import('./componentes/proveedor/Crear.vue')
-const Mostrar = ()=> import('./componentes/proveedor/Mostrar.vue')
+const Proveedor = ()=> import('./componentes/proveedor/Proveedor.vue')
 
 export const Routes =[
     {
@@ -13,16 +11,6 @@ export const Routes =[
     {
         name:'mostrarProveedor',
         path:'/proveedores',
-        component:Mostrar
-    },
-    {
-        name:'crearProveedor',
-        path:'/crear',
-        component:Crear
-    },
-    {
-        name:'editarProveedor',
-        path:'/editar/:id',
-        component:Editar
+        component:Proveedor
     },
 ];
