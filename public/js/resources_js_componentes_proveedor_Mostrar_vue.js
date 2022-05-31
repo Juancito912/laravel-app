@@ -81,7 +81,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return _this.axios.get('/api/proveedor').then(function (response) {
-                  _this.proveedor = response.data();
+                  _this.proveedores = response.data();
                 })["catch"](function (err) {
                   _this.proveedores = [];
                 });
@@ -965,7 +965,7 @@ var render = function () {
   return _c("div", { staticClass: "row " }, [
     _c(
       "div",
-      { staticClass: "col-lg-12 mb-4" },
+      { staticClass: "col-lg-12 ps-4 mb-2 mt-2" },
       [
         _c(
           "router-link",
@@ -979,7 +979,7 @@ var render = function () {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "col-12" }, [
+    _c("div", { staticClass: "col-12 p-4" }, [
       _c("div", { staticClass: "table-responsive table-bordered" }, [
         _c("table", { staticClass: "table bg-primary text-white" }, [
           _vm._m(0),

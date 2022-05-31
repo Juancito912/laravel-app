@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Proveedor;
+use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
 {
@@ -15,7 +14,8 @@ class ProveedorController extends Controller
     public function index()
     {
         $proveedores = Proveedor::all();
-        return responde()->json($proveedores);
+        // return response()->json($proveedores);
+        return $proveedores;
     }
 
     /**
@@ -37,8 +37,8 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $proveedor=Proveedor::create($request->post());
-        return responde()->json([
-            ´proveedor=>$blog
+        return response()->json([
+            'proveedor'=>$proveedor
         ]);
     }
 
@@ -50,7 +50,7 @@ class ProveedorController extends Controller
      */
     public function show(Proveedor $proveedor)
     {
-        return responde()->json($proveedor);
+        return response()->json($proveedor);
     }
 
     /**
@@ -74,7 +74,7 @@ class ProveedorController extends Controller
     public function update(Request $request, Proveedor $proveedor)
     {
         $proveedor->fill($request->post())->save();
-        return responde()->json([
+        return response()->json([
             'proveedor'=>$proveedor
         ]);
     }
@@ -88,7 +88,7 @@ class ProveedorController extends Controller
     public function destroy(Proveedor $proveedor)
     {
         $proveedor->delete();
-        return responde()->json([
+        return response()->json([
             'mensaje'=> 'Proveedor eliminado'
         ]);
     }

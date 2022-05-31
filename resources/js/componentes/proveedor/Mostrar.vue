@@ -1,9 +1,9 @@
 <template>
     <div class="row ">
-        <div class="col-lg-12 mb-4">
+        <div class="col-lg-12 ps-4 mb-2 mt-2">
         <router-link :to="{name:'crearProveedor'}" class="btn btn-success"><i class="fa-solid fa-circle-plus"></i></router-link>
         </div>
-        <div class="col-12">
+        <div class="col-12 p-4">
             <div class="table-responsive table-bordered">
                 <table class="table bg-primary text-white">
                     <thead>
@@ -43,7 +43,7 @@ export default {
         async mostrarProveedor(){
             await this.axios.get('/api/proveedor')
                 .then(response=>{
-                    this.proveedor = response.data()
+                    this.proveedores = response.data()
                 })
                 .catch(err => {
                     this.proveedores = []
