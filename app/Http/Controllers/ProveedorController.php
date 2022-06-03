@@ -11,20 +11,11 @@ class ProveedorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if (!$request->ajax()) return redirect('/');
         $proveedores = Proveedor::all();
         return $proveedores;
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
     }
 
     /**
@@ -35,6 +26,7 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
+        if (!$request->ajax()) return redirect('/');
         $proveedor=new Proveedor();
         $proveedor->nombre=$request->nombre;
         $proveedor->deuda=$request->deuda;
@@ -47,20 +39,11 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Proveedor $proveedor)
+    public function show(Proveedor $proveedor,Request $request)
     {
-        return response()->json($proveedor);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        if(!$request->ajax()) return redirect('/');
+        $proveedor = Proveedor::find($proveedor->id);
+        return $proveedor;
     }
 
     /**
@@ -72,6 +55,7 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, Proveedor $proveedor)
     {
+        if (!$request->ajax()) return redirect('/');
         $proveedor = Proveedor::find($proveedor->id);
         $proveedor->nombre = $request->nombre;
         $proveedor->deuda = $request->deuda;
@@ -84,11 +68,11 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proveedor $proveedor)
+    public function destroy(Proveedor $proveedor,Request $request)
     {
+        if (!$request->ajax()) return redirect('/');
+        $proveedor = Proveedor::find($proveedor->id);
         $proveedor->delete();
-        return response()->json([
-            'mensaje'=> 'Proveedor eliminado'
-        ]);
+        
     }
 }

@@ -1,36 +1,43 @@
 <template>
-    <div class="row ">
-        <div class="col-lg-12 ps-4 mb-2 mt-2">
-        <button @click="abrirModal('categoria','agregar')" class="btn btn-success"><i class="fa-solid fa-circle-plus"></i></button>
+    <div class="ps-4 pe-4 pt-2">
+        <div>
+            <h1 class="text-center text-decoration-underline">Nuestros Proveedores</h1>
         </div>
-        <div class="col-12">
+        <div class='mb-2 mt-2'>
+        <button @click="abrirModal('categoria','agregar')" class="btn btn-outline-success">
+            <i class="fa-solid fa-circle-plus"></i> 
+            Agregar Proveedor
+        </button>
+        </div>
+        <div class="">
             <div class="table-responsive ">
                 <table class="table table-bordered ">
-                    <thead class="bg-primary text-white">
+                    <thead class="bg-info text-black">
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
+                            <th>Nombre del Proveedor</th>
                             <th>Deuda</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="proveedor in proveedores" :key="proveedor.id">
-                            <td >{{proveedor.id}}</td>
-                            <td >{{proveedor.nombre}}</td>
-                            <td >$ {{proveedor.deuda}}</td>
-                            <td> <button @click="abrirModal('categoria','editar',proveedor)" data-bs-target="#exampleModal" class="btn btn-info" ><i class="fa-solid fa-pen-to-square"></i></button>
+                            <td class="p-3">{{proveedor.id}}</td>
+                            <td class="p-3">{{proveedor.nombre}}</td>
+                            <td class="p-3">$ {{proveedor.deuda}}</td>
+                            <td> <button @click="abrirModal('categoria','editar',proveedor)"  class="btn btn-success" ><i class="fa-solid fa-pen-to-square"></i></button>
                             <button type="button" @click="borrarProveedor(proveedor.id)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            <router-link :to="{name:'detalle',params:{id:proveedor.id}}" class="btn btn-warning">Ver Detalle</router-link>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div id="exampleModal" class="modal" tabindex="-1" :class="{'mostrar': modal}">
+        <div  class="modal" tabindex="-1" :class="{'mostrar': modal}">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="modal-header bg-success">
+                <div class="modal-header" v-bind:class="tituloModal=='Agregar Proveedor'?'bg-success':'bg-primary'">
                     <h5 class="modal-title" v-text="tituloModal"></h5>
                     <button type="button" class="btn-close" @click="cerrarModal()" aria-label="Close"></button>
                 </div>
@@ -51,9 +58,10 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" @click="cerrarModal()" class="btn btn-secondary">Close</button>
+                    <button type="button" @click="cerrarModal()" class="btn btn-danger">Cerrar</button>
                     <button type="button" v-if="tituloModal=='Agregar Proveedor'" class="btn btn-primary" @click="agregarProveedor()">Agregar</button>
                     <button type="button" v-if="tituloModal=='Editar Proveedor'" @click="editarProveedor()" class="btn btn-primary">Editar</button>
+                    
                 </div>
                 </div>
             </div>
@@ -72,7 +80,7 @@ export default {
             proveedores:[],
             modal:false,
             tituloModal:'',
-            proveedorID:0,
+            proveedorID:0,    
         }
     },
     mounted(){

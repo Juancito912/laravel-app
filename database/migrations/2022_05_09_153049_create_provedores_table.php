@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('nombre');
             $table->bigIncrements('id');
-            $table->double('deuda');
+            $table->double('deuda',15,2);
             $table->timestamps();
         });
     }

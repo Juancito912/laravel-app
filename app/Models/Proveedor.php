@@ -10,4 +10,9 @@ class Proveedor extends Model
     use HasFactory;
     protected $table = 'proveedores';
     protected $filable = ['nombre','deuda'];
+    
+    public function cuentaCorrientes()
+    {
+        return $this->hasMany('App\Models\CuentaCorriente');
+    }
 }

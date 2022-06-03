@@ -9,11 +9,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                <router-link to="/" exact-active-class="active" class="nav-link active" aria-current="page" >Home</router-link>
-                </li>
+                
                 <li class="nav-item">
                 <router-link to="/proveedores" exact-active-class="active" class="nav-link" >Proveedores</router-link>
+                </li>
+                <li class="nav-item">
+                <router-link to="/banco" exact-active-class="active" class="nav-link" aria-current="page" >Bancos Usados</router-link>
                 </li>
             </ul>
             </div>

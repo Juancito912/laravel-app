@@ -94,6 +94,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "proveedores",
   data: function data() {
@@ -1482,70 +1490,95 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row " }, [
-    _c("div", { staticClass: "col-lg-12 ps-4 mb-2 mt-2" }, [
+  return _c("div", { staticClass: "ps-4 pe-4 pt-2" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "mb-2 mt-2" }, [
       _c(
         "button",
         {
-          staticClass: "btn btn-success",
+          staticClass: "btn btn-outline-success",
           on: {
             click: function ($event) {
               return _vm.abrirModal("categoria", "agregar")
             },
           },
         },
-        [_c("i", { staticClass: "fa-solid fa-circle-plus" })]
+        [
+          _c("i", { staticClass: "fa-solid fa-circle-plus" }),
+          _vm._v(" \n        Agregar Proveedor\n    "),
+        ]
       ),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-12" }, [
+    _c("div", {}, [
       _c("div", { staticClass: "table-responsive " }, [
         _c("table", { staticClass: "table table-bordered " }, [
-          _vm._m(0),
+          _vm._m(1),
           _vm._v(" "),
           _c(
             "tbody",
             _vm._l(_vm.proveedores, function (proveedor) {
               return _c("tr", { key: proveedor.id }, [
-                _c("td", [_vm._v(_vm._s(proveedor.id))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(proveedor.nombre))]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$ " + _vm._s(proveedor.deuda))]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-info",
-                      attrs: { "data-bs-target": "#exampleModal" },
-                      on: {
-                        click: function ($event) {
-                          return _vm.abrirModal(
-                            "categoria",
-                            "editar",
-                            proveedor
-                          )
-                        },
-                      },
-                    },
-                    [_c("i", { staticClass: "fa-solid fa-pen-to-square" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function ($event) {
-                          return _vm.borrarProveedor(proveedor.id)
-                        },
-                      },
-                    },
-                    [_c("i", { staticClass: "fas fa-trash" })]
-                  ),
+                _c("td", { staticClass: "p-3" }, [
+                  _vm._v(_vm._s(proveedor.id)),
                 ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "p-3" }, [
+                  _vm._v(_vm._s(proveedor.nombre)),
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "p-3" }, [
+                  _vm._v("$ " + _vm._s(proveedor.deuda)),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: {
+                          click: function ($event) {
+                            return _vm.abrirModal(
+                              "categoria",
+                              "editar",
+                              proveedor
+                            )
+                          },
+                        },
+                      },
+                      [_c("i", { staticClass: "fa-solid fa-pen-to-square" })]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.borrarProveedor(proveedor.id)
+                          },
+                        },
+                      },
+                      [_c("i", { staticClass: "fas fa-trash" })]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-warning",
+                        attrs: {
+                          to: { name: "detalle", params: { id: proveedor.id } },
+                        },
+                      },
+                      [_vm._v("Ver Detalle")]
+                    ),
+                  ],
+                  1
+                ),
               ])
             }),
             0
@@ -1559,27 +1592,37 @@ var render = function () {
       {
         staticClass: "modal",
         class: { mostrar: _vm.modal },
-        attrs: { id: "exampleModal", tabindex: "-1" },
+        attrs: { tabindex: "-1" },
       },
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _c("div", { staticClass: "modal-header bg-success" }, [
-              _c("h5", {
-                staticClass: "modal-title",
-                domProps: { textContent: _vm._s(_vm.tituloModal) },
-              }),
-              _vm._v(" "),
-              _c("button", {
-                staticClass: "btn-close",
-                attrs: { type: "button", "aria-label": "Close" },
-                on: {
-                  click: function ($event) {
-                    return _vm.cerrarModal()
+            _c(
+              "div",
+              {
+                staticClass: "modal-header",
+                class:
+                  _vm.tituloModal == "Agregar Proveedor"
+                    ? "bg-success"
+                    : "bg-primary",
+              },
+              [
+                _c("h5", {
+                  staticClass: "modal-title",
+                  domProps: { textContent: _vm._s(_vm.tituloModal) },
+                }),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: { type: "button", "aria-label": "Close" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.cerrarModal()
+                    },
                   },
-                },
-              }),
-            ]),
+                }),
+              ]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("form", { staticClass: "form-horizontal" }, [
@@ -1659,7 +1702,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-danger",
                   attrs: { type: "button" },
                   on: {
                     click: function ($event) {
@@ -1667,7 +1710,7 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Cerrar")]
               ),
               _vm._v(" "),
               _vm.tituloModal == "Agregar Proveedor"
@@ -1713,11 +1756,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", { staticClass: "bg-primary text-white" }, [
+    return _c("div", [
+      _c("h1", { staticClass: "text-center text-decoration-underline" }, [
+        _vm._v("Nuestros Proveedores"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "bg-info text-black" }, [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nombre")]),
+        _c("th", [_vm._v("Nombre del Proveedor")]),
         _vm._v(" "),
         _c("th", [_vm._v("Deuda")]),
         _vm._v(" "),

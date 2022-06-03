@@ -2239,8 +2239,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Routes": () => (/* binding */ Routes)
 /* harmony export */ });
-var Home = function Home() {
-  return __webpack_require__.e(/*! import() */ "resources_js_componentes_Home_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./componentes/Home.vue */ "./resources/js/componentes/Home.vue"));
+var ProveedorDetalle = function ProveedorDetalle() {
+  return __webpack_require__.e(/*! import() */ "resources_js_componentes_proveedor_ProveedorDetalle_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./componentes/proveedor/ProveedorDetalle.vue */ "./resources/js/componentes/proveedor/ProveedorDetalle.vue"));
 }; //importamos componentes para proveedores
 
 
@@ -2249,9 +2249,9 @@ var Proveedor = function Proveedor() {
 };
 
 var Routes = [{
-  name: 'home',
-  path: '/',
-  component: Home
+  name: 'detalle',
+  path: '/proveedor/:id',
+  component: ProveedorDetalle
 }, {
   name: 'mostrarProveedor',
   path: '/proveedores',
@@ -19792,14 +19792,13 @@ var render = function () {
                       _c(
                         "router-link",
                         {
-                          staticClass: "nav-link active",
+                          staticClass: "nav-link",
                           attrs: {
-                            to: "/",
+                            to: "/proveedores",
                             "exact-active-class": "active",
-                            "aria-current": "page",
                           },
                         },
-                        [_vm._v("Home")]
+                        [_vm._v("Proveedores")]
                       ),
                     ],
                     1
@@ -19814,11 +19813,12 @@ var render = function () {
                         {
                           staticClass: "nav-link",
                           attrs: {
-                            to: "/proveedores",
+                            to: "/banco",
                             "exact-active-class": "active",
+                            "aria-current": "page",
                           },
                         },
-                        [_vm._v("Proveedores")]
+                        [_vm._v("Bancos Usados")]
                       ),
                     ],
                     1
@@ -35299,7 +35299,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_componentes_Home_vue":1,"resources_js_componentes_proveedor_Proveedor_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_componentes_proveedor_ProveedorDetalle_vue":1,"resources_js_componentes_proveedor_Proveedor_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

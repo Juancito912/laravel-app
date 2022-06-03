@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bancos', function (Blueprint $table) {
             $table->engine="InnoDB";
 
-            $table->string('nombre');
+            $table->string('nombre',50);
             $table->id();
             $table->timestamps();
         });

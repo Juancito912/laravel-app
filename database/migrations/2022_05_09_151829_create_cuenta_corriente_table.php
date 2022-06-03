@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('cuenta_corriente', function (Blueprint $table) {
             $table->engine="InnoDB";
 
-            $table->string('poseedor');
+            $table->string('poseedor',30);
             $table->bigInteger('banco_id')->unsigned();
             $table->bigInteger('proveedor_id')->unsigned();
+            $table->double('saldo',15,2);
             $table->id();
 
             $table->timestamps();
